@@ -1,0 +1,463 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+p {
+  text-align: justify;
+}
+/*CAROSELLO*/
+.carousel-inner {
+  margin-top: 60px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-inner img {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-inner img:first-child {
+  display: block;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.carousel-control-icon {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-top: 2px solid red;
+  border-right: 2px solid #fff;
+  transform: rotate(-45deg);
+  margin-top: -4px;
+}
+
+.carousel-control.left {
+  left: 10px;
+}
+
+.carousel-control.right {
+  right: 10px;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-indicators li {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.carousel-indicators li.active {
+  background-color: #fff;
+}
+/*AGGIUSTAMENTI X CAROSELLO RESPONSIVE*/
+.carousel {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+  overflow: hidden;
+  z-index: 1; /* Aggiunto */
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s;
+}
+
+.carousel-inner img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+.carousel-control:hover {
+  opacity: 1;
+}
+
+.carousel-control.left {
+  left: 0;
+}
+
+.carousel-control.right {
+  right: 0;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.carousel-indicators li {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.carousel-indicators li.active {
+  background-color: #333;
+}
+
+/* MENU */
+.menu-toggle {
+  display: none;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: #333;
+  padding: 5px 10px;
+  border: 1px solid #333;
+}
+
+.menu ul li a:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+#intro {
+  background-color: #f9f9f9;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+/* Stili per il menu responsive */
+.menu-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0px;
+  margin-top: 0px;
+  z-index: 9998;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.menu li {
+  list-style: none;
+  margin: 5px;
+}
+
+.menu li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #333; /* Aggiunto bordo */
+  border-radius: 5px; /* Aggiunto bordo */
+  transition: background-color 0.3s, color 0.3s; /* Aggiunto transizione */
+}
+
+.menu li a:hover {
+  background-color: red; /* Cambia il colore di sfondo in rosso */
+  color: #fff; /* Cambia il colore del testo in bianco */
+}
+
+/* Stili per il pulsante di chiusura del menù */
+.menu-close {
+  display: none;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: #fff;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  z-index: 99999;
+}
+
+.menu-close::before,
+.menu-close::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background-color: #333;
+  transition: all 0.3s ease;
+}
+
+.menu-close::before {
+  transform: rotate(45deg);
+}
+
+.menu-close::after {
+  transform: rotate(-45deg);
+}
+
+/* Stili per il menu aperto */
+.menu.open .menu-close {
+  display: block;
+}
+
+/* Stili per nascondere il carousel quando il menu è aperto */
+.menu.open ~ .carosello_cont .carousel {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: none;
+    border-radius: 50%;
+    z-index: 9999;
+    transition: background-color 0.3s;
+  }
+  
+  .menu-toggle.active {
+    background-color: #da0303;
+  }
+  
+  .menu-toggle.active .menu-icon::before,
+  .menu-toggle.active .menu-icon::after {
+    background-color: #fff;
+  }
+  
+  /*.animate::before {
+    content: "";
+    position: absolute;
+    margin-top: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    height: 54px;
+    background-color: #da0303;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    animation: rotateHexagon 2s infinite linear;
+  }
+  
+  @keyframes rotateHexagon {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }*/
+  
+  .menu-container {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 0px;
+  }
+  
+  .menu {
+    display: none;
+  }
+  
+  .menu.open {
+    display: flex;
+  }
+  
+  .menu ul {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .menu ul li {
+    margin: 10px 0;
+  }
+}
+/* Stili per il menu responsive a dimensioni ridotte */
+@media (max-width: 760px) {
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 99999;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 50px;
+    transition: all 0.3s ease;
+    position: relative; /* Aggiunto */
+    z-index: 1; /* Aggiunto */
+  }
+
+  .menu.open {
+    display: flex;
+  }
+
+  .menu li {
+    width: 100%;
+    text-align: right;
+    margin: 10px 0;
+  }
+}
+.theme-toggle {
+  position: fixed;
+  margin-top: 20px;
+  margin-left: 40px;
+  width: 58px;
+  height: 58px;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(0 0 0 / 0%) !important;
+  z-index: 9999;
+}
+/*CARDS*/
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.project {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.project-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: auto;
+}
+
+.project-details {
+  padding: 10px;
+}
+
+.project-details h3 {
+  margin-top: 0;
+}
+
+@media (min-width: 768px) {
+  .project {
+    width: calc(50% - 10px);
+  }
+}
+
+@media (min-width: 992px) {
+  .project {
+    width: calc(33.33% - 10px);
+  }
+}
+.projects h2 {
+  margin-top: 70px;
+}

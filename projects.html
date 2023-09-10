@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ARCHIFACTS</title>
+     <link href="css/style.css" rel="stylesheet" type= "text/css" /> 
+    <link href="css/componenti.css" rel= "stylesheet" type= "text/css" />
+    <link href="css/nightmode.css" rel="stylesheet" type= "text/css" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      
+    </head>
+<body>
+  <header>
+    <!--BOTTONE NIGHTMODE-->
+      <button id="theme-toggle" class="theme-toggle">
+          <img class="night-mode" src="images/cambio_stile.svg" alt="night-mode">
+      </button>
+      
+      <!--MENU PRINCIPALE-->
+      <div class="menu-container">
+       <button class="menu-toggle"></button>
+        <ul class="menu">
+          <li><a class="page-scroll" href="index.html">Home</a></li>
+          <li><a class="page-scroll" href="projects.html">Projects</a></li>
+          <li><a class="page-scroll" href="staff.html">Staff</a></li>
+          <li><a class="page-scroll" href="quote.html">Quote</a></li>
+          <li><a class="page-scroll" href="contactus.html">Contact Us</a></li>
+        </ul>
+      </div>
+  </header>
+  <section id="contenuto">
+<section id="intro">
+  <div class="container">
+    <h2>Our Projects</h2>
+  </div>
+</section>
+<section id="projects">
+    <div class="container projects">
+        <div class="project">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/project_1.jpeg" alt="Project 1">
+                </div>
+                <div class="project-details">
+                    <h3>Size doesn't matter</h3>
+                    <p>Even if your request is a skyskraper we are going<br>to let you see every window rendered as well</p>
+                </div>
+            </div>
+        </div>
+        <div class="project">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/project_2.jpeg" alt="Project 2">
+                </div>
+                <div class="project-details">
+                    <h3>Be like water</h3>
+                    <p>We are going to give valour to the <br>landscape that surround your buildings</p>
+                </div>
+            </div>
+        </div>
+        <div class="project">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/project_3.jpeg" alt="Project 3">
+                </div>
+                <div class="project-details">
+                    <h3>Never out of lights</h3>
+                    <p>Our shiny renders will assure your client how<br> wonderful will be living in your building</p>
+                </div>
+            </div>
+        </div>
+    <div class="project">
+      <div class="project-card">
+          <div class="project-image">
+              <img src="images/project_2.jpeg" alt="Project 2">
+          </div>
+          <div class="project-details">
+              <h3>Be like water</h3>
+              <p>We are going to give valour to the <br>landscape that surround your buildings</p>
+          </div>
+
+</section>
+</section>
+
+  <footer>
+    <div class="container">
+        <p> 2023 Archifacts. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+<script>
+  $(document).ready(function() {
+    var currentIndex = 0;
+    var slides = $(".carousel img");
+    var totalSlides = slides.length;
+    var slideInterval = setInterval(nextSlide, 5000); // Intervallo di 5 secondi per il cambio automatico delle slide
+
+    // Funzione per mostrare lo slide corrente
+    function showSlide(index) {
+      slides.hide();
+      slides.eq(index).show();
+      $(".carousel-indicators li").removeClass("active");
+      $(".carousel-indicators li").eq(index).addClass("active");
+    }
+
+    // Funzione per passare allo slide successivo
+    function nextSlide() {
+      currentIndex++;
+      if (currentIndex >= totalSlides) {
+        currentIndex = 0;
+      }
+      showSlide(currentIndex);
+    }
+
+    // Funzione per passare allo slide precedente
+    function prevSlide() {
+      currentIndex--;
+      if (currentIndex < 0) {
+        currentIndex = totalSlides - 1;
+      }
+      showSlide(currentIndex);
+    }
+
+    // Evento per il click sul pulsante "Precedente"
+    $(".carousel-control.left").click(function() {
+      prevSlide();
+    });
+
+    // Evento per il click sul pulsante "Successivo"
+    $(".carousel-control.right").click(function() {
+      nextSlide();
+    });
+
+    // Evento per il click sui punti di indicazione
+    $(".carousel-indicators li").click(function() {
+      var index = $(this).index();
+      showSlide(index);
+    });
+
+    // Mostra il primo slide all'avvio
+    showSlide(0);
+
+    // Evento per il click sul toggle del menù
+    $('.menu-toggle').click(function() {
+      $(this).toggleClass('open');
+      $('.menu').toggleClass('open');
+    });
+
+    // Evento per il click sul pulsante di chiusura del menù
+    $('.menu-close').click(function() {
+      $('.menu-toggle').removeClass('open');
+      $('.menu').removeClass('open');
+    });
+   
+  });
+
+  //nightmode
+  var toggleButton = document.getElementById('theme-toggle');
+  var styleLink = document.querySelector('link[href="css/nightmode.css"]');
+  var isNightMode = false;
+
+toggleButton.addEventListener('click', function() {
+isNightMode = !isNightMode;
+if (isNightMode) {
+  styleLink.disabled = false; // Abilita il tema notturno
+} else {
+  styleLink.disabled = true; // Disabilita il tema notturno
+}
+});
+
+
+</script>      
+
+    
+</html>

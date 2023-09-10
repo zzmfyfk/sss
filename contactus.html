@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ARCHIFACTS</title>
+     <link href="css/style.css" rel="stylesheet" type= "text/css" /> 
+    <link href="css/componenti.css" rel= "stylesheet" type= "text/css" />
+    <link href="css/nightmode.css" rel="stylesheet" type= "text/css" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      
+    </head>
+
+    <body>
+        <header>
+            <!--PULSANTE NIGHTMODE-->
+            <button id="theme-toggle" class="theme-toggle">
+                <img class="night-mode" src="images/cambio_stile.svg" alt="night-mode">
+            </button>
+            <!-- MENU PRINCIPALE-->
+            <div class="menu-container">
+             <!--<div class="menu-toggle">
+                <div class="menu-icon"></div>
+              </div>-->
+                
+
+              <button class="menu-toggle"></button>
+              <ul class="menu">
+                <li><a class="page-scroll" href="#intro">Home</a></li>
+                <li><a class="page-scroll" href="projects.html">Projects</a></li>
+                <li><a class="page-scroll" href="staff.html">Staff</a></li> 
+                <li><a class="page-scroll" href="quote.html">Quote</a></li>
+                <li><a class="page-scroll" href="contact.html">Contact Us</a></li>
+              </ul>
+            </div>
+        </header>
+          <section id="contenuto">
+        <section id="contact">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <p>email: archifacts@studio.com</p> 
+                <p>Follow us on:
+                    x- icona
+                    ig-icona
+                    vimeo-icona 
+                    pane
+
+                </p>
+
+                <a class="cta-button" href="contact.html">Contact Us</a>
+            </div>
+        </section>
+              
+    </section>
+    
+    <section id="booking">
+        <div class="container">
+            <h2>Work with us</h2>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+
+            <p> 2023 Archifacts. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+<script>
+    $(document).ready(function() {
+      var currentIndex = 0;
+      var slides = $(".carousel img");
+      var totalSlides = slides.length;
+      var slideInterval = setInterval(nextSlide, 5000); // Intervallo di 5 secondi per il cambio automatico delle slide
+  
+      // Funzione per mostrare lo slide corrente
+      function showSlide(index) {
+        slides.hide();
+        slides.eq(index).show();
+        $(".carousel-indicators li").removeClass("active");
+        $(".carousel-indicators li").eq(index).addClass("active");
+      }
+  
+      // Funzione per passare allo slide successivo
+      function nextSlide() {
+        currentIndex++;
+        if (currentIndex >= totalSlides) {
+          currentIndex = 0;
+        }
+        showSlide(currentIndex);
+      }
+  
+      // Funzione per passare allo slide precedente
+      function prevSlide() {
+        currentIndex--;
+        if (currentIndex < 0) {
+          currentIndex = totalSlides - 1;
+        }
+        showSlide(currentIndex);
+      }
+  
+      // Evento per il click sul pulsante "Precedente"
+      $(".carousel-control.left").click(function() {
+        prevSlide();
+      });
+  
+      // Evento per il click sul pulsante "Successivo"
+      $(".carousel-control.right").click(function() {
+        nextSlide();
+      });
+  
+      // Evento per il click sui punti di indicazione
+      $(".carousel-indicators li").click(function() {
+        var index = $(this).index();
+        showSlide(index);
+      });
+  
+      // Mostra il primo slide all'avvio
+      showSlide(0);
+  
+      // Evento per il click sul toggle del menù
+      $('.menu-toggle').click(function() {
+        $(this).toggleClass('open');
+        $('.menu').toggleClass('open');
+      });
+  
+      // Evento per il click sul pulsante di chiusura del menù
+      $('.menu-close').click(function() {
+        $('.menu-toggle').removeClass('open');
+        $('.menu').removeClass('open');
+      });
+     
+    });
+
+    //nightmode
+    var toggleButton = document.getElementById('theme-toggle');
+    var styleLink = document.querySelector('link[href="css/nightmode.css"]');
+    var isNightMode = false;
+
+toggleButton.addEventListener('click', function() {
+  isNightMode = !isNightMode;
+  if (isNightMode) {
+    styleLink.disabled = false; // Abilita il tema notturno
+  } else {
+    styleLink.disabled = true; // Disabilita il tema notturno
+  }
+});
+
+
+  </script>      
+  
+</html>

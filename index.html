@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ARCHIFACTS</title>
+     <link href="css/style.css" rel="stylesheet" type= "text/css" /> 
+    <link href="css/componenti.css" rel= "stylesheet" type= "text/css" />
+    <link href="css/nightmode.css" rel="stylesheet" type= "text/css" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      
+    </head>
+
+    <body>
+        <header>
+          <!--BOTTONE NIGHTMODE-->
+            <button id="theme-toggle" class="theme-toggle">
+                <img class="night-mode" src="images/cambio_stile.svg" alt="night-mode">
+            </button>
+            
+            <!--MENU PRINCIPALE-->
+            <div class="menu-container">
+             <button class="menu-toggle"></button>
+              <ul class="menu">
+                <li><a class="page-scroll" href="index.html">Home</a></li>
+                <li><a class="page-scroll" href="projects.html">Projects</a></li>
+                <li><a class="page-scroll" href="staff.html">Staff</a></li>
+                <li><a class="page-scroll" href="quote.html">Quote</a></li>
+                <li><a class="page-scroll" href="contactus.html">Contact Us</a></li>
+              </ul>
+            </div>
+        </header>
+          <!--CAROSELLO IMMAGINI-->
+          <section id="contenuto">
+     <div class="carosello_cont">
+        <div class="carousel">
+          <div class="carousel-inner">
+            <img src="images/prima_slide.png" alt="First slide">
+            <img src="images/seconda_slide.png" alt="Second slide">
+            <img src="images/terza_slide.png" alt="Third slide">
+          </div>
+          <a class="carousel-control left" href="#">
+            <span class="carousel-control-icon"></span>
+          </a>
+          <a class="carousel-control right" href="#">
+            <span class="carousel-control-icon"></span>
+          </a>
+          <ul class="carousel-indicators">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+ <!--LINK FORM PREVENTIVO-->
+    <section id="intro">
+        <div class="container">
+            <h1>Welcome to Archifacts Studio</h1>
+            <p>Our job let you imagine faster.</p>
+            <a class="cta-button" href="#booking">Get a Quote</a>
+        </div>
+    </section>
+    <!--FILLER-->
+    <section id="workflow">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="column-container">
+                <div class="column">
+                    <h3>Fastest delivery</h3>
+                    <p>We gonna share with you the results in few days</p>
+                </div>
+                <div class="column">
+                    <h3>HQ details</h3>
+                    <p>Our stunning job will give dignity to your projects</p>
+                </div>
+                <div class="column">
+                    <h3>Trustness</h3>
+                    <p>We are going to follow you in every step of rendering</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<!--CARDS-->
+        <section id="projects">
+          <h2>Our Projects</h2>
+            <div class="container"><section id="projects">
+              <div class="container">
+                  <div class="card">
+                      <div class="card-details">
+                          <div class="card-image">
+                              <img src="images/project_1.jpeg" alt="Card 1">
+                          </div>
+                          <div class="card-info">
+                              <h3>Size doesn't matter</h3>
+                              <p>Even if your request is a skyskraper we are going to let you see every window rendered as well</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card">
+                      <div class="card-details">
+                          <div class="card-image">
+                              <img src="images/project_2.jpeg" alt="Card 2">
+                          </div>
+                          <div class="card-info">
+                              <h3>Be like water</h3>
+                              <p>We are going to give valour to the <br>
+                                landscape that surround your buildings</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card">
+                      <div class="card-details">
+                          <div class="card-image">
+                              <img src="images/project_3.jpeg" alt="Card 3">
+                          </div>
+                          <div class="card-info">
+                              <h3>Never out of lights</h3>
+                              <p>Our shiny renders will assure your client how<br> 
+                                wonderful will be living in your building</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+          <!--FORM PREVENTIVO-->
+    <section id="booking">
+        <div class="container">
+            <h2>Get a Quote</h2>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </section>
+<!--CONTATTI-->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at lorem augue. Suspendisse quis iaculis mauris.</p>
+            <a class="cta-button" href="contactus.html">Contact Us</a>
+        </div>
+    </section>
+  </section>
+    <!--footer-->
+    <footer>
+        <div class="container">
+            <p> 2023 Archifacts. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+<script>
+    $(document).ready(function() {
+      var currentIndex = 0;
+      var slides = $(".carousel img");
+      var totalSlides = slides.length;
+      var slideInterval = setInterval(nextSlide, 5000); // Intervallo di 5 secondi per il cambio automatico delle slide
+  
+      //Funzione per mostrare la slide corrente
+      function showSlide(index) {
+        slides.hide();
+        slides.eq(index).show();
+        $(".carousel-indicators li").removeClass("active");
+        $(".carousel-indicators li").eq(index).addClass("active");
+      }
+  
+      //Funzione slide successive
+      function nextSlide() {
+        currentIndex++;
+        if (currentIndex >= totalSlides) {
+          currentIndex = 0;
+        }
+        showSlide(currentIndex);
+      }
+  
+      // Funzione per passare alla slide precedente
+      function prevSlide() {
+        currentIndex--;
+        if (currentIndex < 0) {
+          currentIndex = totalSlides - 1;
+        }
+        showSlide(currentIndex);
+      }
+  
+      // click precedente
+      $(".carousel-control.left").click(function() {
+        prevSlide();
+      });
+  
+      //  click sul pulsante "Successivo"
+      $(".carousel-control.right").click(function() {
+        nextSlide();
+      });
+  
+      // click sui punti di indicazione
+      $(".carousel-indicators li").click(function() {
+        var index = $(this).index();
+        showSlide(index);
+      });
+  
+      // prima slide all'avvio
+      showSlide(0);
+  
+      // Evento per il click sul toggle del menù
+      $('.menu-toggle').click(function() {
+        $(this).toggleClass('open');
+        $('.menu').toggleClass('open');
+      });
+  
+      // Evento per il click sul pulsante di chiusura del menù
+      $('.menu-close').click(function() {
+        $('.menu-toggle').removeClass('open');
+        $('.menu').removeClass('open');
+      });
+     
+    });
+
+    //nightmode
+    var toggleButton = document.getElementById('theme-toggle');
+    var styleLink = document.querySelector('link[href="css/nightmode.css"]');
+    var isNightMode = false;
+
+toggleButton.addEventListener('click', function() {
+  isNightMode = !isNightMode;
+  if (isNightMode) {
+    styleLink.disabled = false; // Abilita il tema notturno
+  } else {
+    styleLink.disabled = true; // Disabilita il tema notturno
+  }
+});
+
+
+  </script>      
+  
+</html>
